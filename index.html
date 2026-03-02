@@ -86,7 +86,7 @@
       overflow-x: hidden;
       /* default cursor */
     }
-    a, button, .btn, .program-card, .about-card, .why-item, .review-card, .price-card, .social-link, .gallery-item {
+    a, button, .btn, .program-row, .about-card, .why-item, .review-card, .price-card, .social-link, .gallery-item {
       cursor: pointer;
     }
 
@@ -604,15 +604,15 @@
       line-height: 1.5;
     }
 
-    .about-cards { display: grid; gap: 16px; }
+    .about-cards { display: grid; gap: 12px; }
     .about-card {
-      padding: 28px;
+      padding: 22px 24px;
       border: 1px solid rgba(245,230,200,0.05);
       border-radius: 14px;
       background: rgba(245,230,200,0.02);
       transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
       display: flex;
-      gap: 20px;
+      gap: 18px;
       align-items: flex-start;
     }
     .about-card:hover {
@@ -621,13 +621,13 @@
       transform: translateX(6px);
     }
     .about-card-icon {
-      width: 44px; height: 44px;
+      width: 42px; height: 42px;
       flex-shrink: 0;
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
     }
     .about-card-icon.youth { background: rgba(27,94,32,0.15); color: var(--green-bright); }
     .about-card-icon.adult { background: rgba(198,40,40,0.12); color: var(--red); }
@@ -637,60 +637,83 @@
     .about-card h4 {
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.92rem;
       letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--cream);
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
-    .about-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+    .about-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.6; }
 
-    /* PROGRAMS */
-    .programs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .program-card {
-      padding: 40px 32px;
+    /* PROGRAMS — Full-width stacked rows */
+    .programs-stack { display: flex; flex-direction: column; gap: 12px; }
+    .program-row {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 32px 36px;
       border: 1px solid rgba(245,230,200,0.05);
-      border-radius: 16px;
-      background: linear-gradient(160deg, rgba(245,230,200,0.03), rgba(245,230,200,0.01));
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(245,230,200,0.025), rgba(245,230,200,0.008));
       transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
       position: relative;
       overflow: hidden;
     }
-    .program-card::before {
+    .program-row::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--green), var(--cream), var(--red));
+      top: 0; bottom: 0; left: 0;
+      width: 3px;
+      background: var(--red);
       opacity: 0;
       transition: opacity 0.4s ease;
     }
-    .program-card:hover { transform: translateY(-6px); border-color: rgba(245,230,200,0.08); }
-    .program-card:hover::before { opacity: 1; }
-
-    .program-num {
-      font-family: 'Abril Fatface', serif;
-      font-size: 4rem;
-      color: rgba(198,40,40,0.08);
-      line-height: 1;
-      margin-bottom: 16px;
-      transition: color 0.4s;
+    .program-row:hover {
+      border-color: rgba(198,40,40,0.15);
+      background: rgba(198,40,40,0.04);
+      transform: translateX(6px);
     }
-    .program-card:hover .program-num { color: rgba(198,40,40,0.18); }
-    .program-card h3 { font-family: 'Abril Fatface', serif; font-size: 1.35rem; color: var(--cream); margin-bottom: 12px; }
-    .program-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+    .program-row:hover::before { opacity: 1; }
+    .program-row-icon {
+      width: 56px; height: 56px;
+      flex-shrink: 0;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+    }
+    .program-row:hover .program-row-icon { transform: scale(1.1); }
+    .program-row-icon.youth { background: rgba(27,94,32,0.15); }
+    .program-row-icon.private { background: rgba(198,40,40,0.12); }
+    .program-row-icon.fighters { background: rgba(212,160,23,0.12); }
+    .program-row-icon.strength { background: rgba(245,230,200,0.06); }
+    .program-row-body { flex: 1; min-width: 0; }
+    .program-row-top { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; flex-wrap: wrap; }
+    .program-row-top h3 {
+      font-family: 'Abril Fatface', serif;
+      font-size: 1.3rem;
+      color: var(--cream);
+      margin: 0;
+    }
     .program-tag {
       display: inline-block;
-      margin-top: 18px;
-      padding: 6px 16px;
+      padding: 4px 14px;
       border-radius: 4px;
       border: 1px solid rgba(198,40,40,0.25);
       color: var(--red);
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 600;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       letter-spacing: 2px;
       text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .program-row-body p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin: 0; }
+    @media (max-width: 768px) {
+      .program-row { flex-direction: column; align-items: flex-start; gap: 16px; padding: 28px 24px; }
+      .program-row:hover { transform: translateY(-4px) translateX(0); }
     }
 
     /* GALLERY */
@@ -1184,7 +1207,7 @@
     .mobile-menu a { font-family: 'Abril Fatface', serif; font-size: 1.8rem; color: var(--cream); text-decoration: none; transition: color 0.2s; }
     .mobile-menu a:hover { color: var(--red); }
 
-    @media (max-width: 960px) { .programs-grid { grid-template-columns: 1fr; } .reviews-grid { grid-template-columns: 1fr 1fr; } .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+    @media (max-width: 960px) { .reviews-grid { grid-template-columns: 1fr 1fr; } .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
     @media (max-width: 768px) {
       section { padding: 80px 20px; }
       .nav { padding: 0 16px; }
@@ -1551,7 +1574,6 @@
       </div>
       <div class="hero-diamond"><span class="dl"></span><span class="dd"></span><span class="dl"></span></div>
     </div>
-    <div class="scroll-hint"><span>Scroll</span><div class="scroll-arrow"></div></div>
   </section>
 
   <div class="sec-divider"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
@@ -1559,19 +1581,23 @@
   <!-- ABOUT -->
   <section id="about" aria-label="About Coach Francisco - Boxing Trainer Plano TX">
     <div class="section-inner">
-      <div class="reveal">
-        <div class="section-label">About Coach Francisco</div>
-        <h2 class="section-heading">30+ Years of<br/><em>Boxing Excellence</em></h2>
-        <p class="section-desc">USA Boxing Certified Coach. World Class Trainer &mdash; Making Elite Champions. From beginners to pros, kids of all ages &mdash; everyone trains the real way.</p>
-      </div>
       <div class="about-grid">
         <div class="reveal" style="transition-delay: 0.1s;">
-          <div class="about-text">
+          <div class="section-label">About Coach Francisco</div>
+          <h2 class="section-heading">30+ Years of<br/><em>Boxing Excellence</em></h2>
+          <p class="section-desc" style="max-width:100%;">USA Boxing Certified Coach. World Class Trainer &mdash; Making Elite Champions. From beginners to pros, kids of all ages &mdash; everyone trains the real way.</p>
+          <div class="about-text" style="margin-top: 32px;">
             <p><strong>&ldquo;My name is Francisco.</strong> I've been boxing for over 30 years. I have fought amateurs and professionally. I have trained professionals and now I am offering boxing lessons to anyone wanting to learn how to box or just have a great workout.&rdquo;</p>
             <br/>
             <p>I work with <strong>beginners to pros, kids of all ages, male and female</strong> &mdash; from competitive boxers and NFL athletes to the regular Joes looking to get in shape. MMA fighters and martial artists are welcome to sharpen their boxing skills. We provide all equipment in our private location.</p>
             <br/>
             <p>We also offer <strong>strength training, conditioning &amp; personal training</strong>. Travel coaching available across the USA and worldwide.</p>
+            <br/>
+            <p>What makes Empire Boxing different is simple: <strong>every session is private, one-on-one</strong>. You won't be standing around in a class of 20&ndash;30 people waiting for attention. From the moment you walk in, the focus is on you &mdash; your technique, your footwork, your progress. That's how real boxing is taught.</p>
+            <br/>
+            <p>Whether you're a <strong>parent looking for a safe, structured program</strong> for your child, an adult who's never thrown a punch, or an experienced fighter preparing for competition &mdash; Coach Francisco builds a training plan around your specific goals. No cookie-cutter workouts. No wasted time. Just real coaching from someone who has lived this sport at every level.</p>
+            <br/>
+            <p>Empire Boxing is located in <strong>Plano, Texas</strong> and proudly serves the entire Dallas-Fort Worth metroplex. We're open 7 days a week with flexible scheduling to fit your life.</p>
           </div>
           <div class="about-highlight corner-frame">
             <p>World Class Trainer &mdash; Making Elite Champions. USA Boxing Certified Coach. Friendly trainers here to guide you along the way.</p>
@@ -1594,6 +1620,22 @@
             <div class="about-card-icon comp">&#9889;</div>
             <div><h4>Strength &amp; Conditioning</h4><p>Full-body strength training, conditioning, and personal training to complement your boxing program.</p></div>
           </div>
+          <div class="about-card reveal" style="transition-delay: 0.55s;">
+            <div class="about-card-icon youth">&#129351;</div>
+            <div><h4>All Equipment Provided</h4><p>Gloves, wraps, heavy bags, speed bags &mdash; everything you need is here. Just show up ready to work.</p></div>
+          </div>
+          <div class="about-card reveal" style="transition-delay: 0.65s;">
+            <div class="about-card-icon adult">&#128197;</div>
+            <div><h4>Open 7 Days a Week</h4><p>Flexible scheduling that fits your life. Morning, afternoon, and evening sessions available every day of the week.</p></div>
+          </div>
+          <div class="about-card reveal" style="transition-delay: 0.75s;">
+            <div class="about-card-icon private">&#127464;&#127480;</div>
+            <div><h4>Bilingual Training</h4><p>Coach Francisco trains in both English and Spanish. Everyone is welcome &mdash; no language barrier will hold you back.</p></div>
+          </div>
+          <div class="about-card reveal" style="transition-delay: 0.85s;">
+            <div class="about-card-icon comp">&#127947;</div>
+            <div><h4>Beginners to Pros</h4><p>Never thrown a punch? Preparing for a fight? It doesn't matter where you start &mdash; Francisco meets you at your level and builds you up.</p></div>
+          </div>
         </div>
       </div>
     </div>
@@ -1609,30 +1651,46 @@
         <h2 class="section-heading">One on One Sessions With <em>Professionals</em></h2>
         <p class="section-desc">Ever go to a boxing gym and you're around a bunch of people, 1 trainer to 20&ndash;30 people, or nothing but kids everywhere and you get no instruction? We only offer private 1-on-1 training to ensure you always get instruction and learn boxing the right way.</p>
       </div>
-      <div class="programs-grid">
-        <div class="program-card reveal" style="transition-delay: 0.1s;">
-          <div class="program-num">01</div>
-          <h3>Youth Boxing</h3>
-          <p>Technique-first coaching for kids and teens of all ages. Build discipline, coordination, and confidence in a structured, safe environment.</p>
-          <span class="program-tag">All Ages</span>
+      <div class="programs-stack">
+        <div class="program-row reveal" style="transition-delay: 0.1s;">
+          <div class="program-row-icon youth">&#129354;</div>
+          <div class="program-row-body">
+            <div class="program-row-top">
+              <h3>Youth Boxing</h3>
+              <span class="program-tag">All Ages</span>
+            </div>
+            <p>Real boxing for young athletes &mdash; not daycare with gloves. Coach Francisco teaches proper technique, footwork, and ring IQ to kids and teens in a structured, disciplined environment. Your child builds confidence, coordination, and mental toughness that carries far beyond the gym. Every session is hands-on coaching, not standing around watching.</p>
+          </div>
         </div>
-        <div class="program-card reveal" style="transition-delay: 0.2s;">
-          <div class="program-num">02</div>
-          <h3>Private Lessons</h3>
-          <p>One-on-one sessions with Francisco. 30- or 60-minute sessions available. The fastest way to learn real boxing the right way.</p>
-          <span class="program-tag">1-on-1</span>
+        <div class="program-row reveal" style="transition-delay: 0.2s;">
+          <div class="program-row-icon private">&#129352;</div>
+          <div class="program-row-body">
+            <div class="program-row-top">
+              <h3>Private Lessons</h3>
+              <span class="program-tag">1-on-1</span>
+            </div>
+            <p>This is what sets Empire Boxing apart. Every session is private, one-on-one with Coach Francisco &mdash; no group classes, no waiting for your turn. Choose 30- or 60-minute sessions tailored to your skill level and goals. Whether you're a complete beginner learning your first jab or an experienced boxer sharpening combinations, you get undivided attention and real coaching the entire time.</p>
+          </div>
         </div>
-        <div class="program-card reveal" style="transition-delay: 0.3s;">
-          <div class="program-num">03</div>
-          <h3>All Fighters Welcome</h3>
-          <p>MMA fighters, martial artists, and athletes looking to sharpen their boxing skills. Pure boxing fundamentals that elevate any fighting style.</p>
-          <span class="program-tag">All Disciplines</span>
+        <div class="program-row reveal" style="transition-delay: 0.3s;">
+          <div class="program-row-icon fighters">&#127942;</div>
+          <div class="program-row-body">
+            <div class="program-row-top">
+              <h3>All Fighters Welcome</h3>
+              <span class="program-tag">All Disciplines</span>
+            </div>
+            <p>MMA fighters, Muay Thai practitioners, BJJ competitors &mdash; if you want to sharpen your hands, this is where you do it. Francisco brings 30+ years of pure boxing fundamentals that translate directly into the cage or ring. Improve your head movement, defensive footwork, and punching mechanics with training designed to elevate whatever fighting style you already bring to the table.</p>
+          </div>
         </div>
-        <div class="program-card reveal" style="transition-delay: 0.4s;">
-          <div class="program-num">04</div>
-          <h3>Strength &amp; Conditioning</h3>
-          <p>Full-body strength training, conditioning, and personal training. Get in shape with a program that complements your boxing goals.</p>
-          <span class="program-tag">All Levels</span>
+        <div class="program-row reveal" style="transition-delay: 0.4s;">
+          <div class="program-row-icon strength">&#9889;</div>
+          <div class="program-row-body">
+            <div class="program-row-top">
+              <h3>Strength &amp; Conditioning</h3>
+              <span class="program-tag">All Levels</span>
+            </div>
+            <p>Boxing-specific strength and conditioning that builds explosive power, endurance, and functional fitness. This isn't generic personal training &mdash; every workout is designed to complement your boxing skills with heavy bag work, circuit training, core strengthening, and cardio that actually translates to performance. Whether you want to compete or just get in the best shape of your life, this program delivers.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1733,7 +1791,7 @@
             <span class="reel-label">Watch Reel</span>
           </div>
         </a>
-        <a class="reel-card reveal" style="transition-delay: 0.3s;" href="https://www.instagram.com/reel/DHjG66GMUE9/" target="_blank" rel="noopener">
+        <a class="reel-card reveal" style="transition-delay: 0.3s;" href="https://www.instagram.com/reel/DIemMQvOxp7/" target="_blank" rel="noopener">
           <div class="reel-card-inner">
             <div class="reel-icon">
               <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
@@ -1918,7 +1976,7 @@
             1817 Stockton Trail<br/>
             Plano, TX 75023<br/><br/>
             Call / Text: <a href="tel:2147787747">214-778-7747</a><br/>
-            Email: <a href="mailto:empireboxing@hotmail.com">empireboxing@hotmail.com</a>
+            Email: <a href="/cdn-cgi/l/email-protection#82e7eff2ebf0e7e0edfaebece5c2eaedf6efe3ebeeace1edef"><span class="__cf_email__" data-cfemail="0b6e667b62796e69647362656c4b63647f666a626725686466">[email&#160;protected]</span></a>
           </address>
           <div style="margin:16px 0; padding:14px; border-radius:10px; background:rgba(245,230,200,0.03); border:1px solid rgba(245,230,200,0.06); font-size:0.85rem; line-height:1.8; color:var(--muted);">
             <strong style="color:var(--cream);">Hours</strong><br/>
@@ -1962,7 +2020,7 @@
         <a class="btn btn-red btn-large" href="tel:2147787747">Call Now</a>
         <a class="btn btn-outline btn-large" href="sms:2147787747">Text Us</a>
         <a class="btn btn-outline btn-large" href="https://wa.me/12147787747" target="_blank" rel="noopener">WhatsApp</a>
-        <a class="btn btn-outline btn-large" href="mailto:empireboxing@hotmail.com">Email Us</a>
+        <a class="btn btn-outline btn-large" href="/cdn-cgi/l/email-protection#680d0518011a0d0a071001060f2800071c05090104460b0705">Email Us</a>
       </div>
       <p class="reveal" style="margin-top:32px; color:var(--muted); font-size:0.88rem; line-height:1.7;">
         <strong style="color:var(--cream);">1817 Stockton Trail, Plano, TX 75023</strong><br/>
@@ -1987,7 +2045,7 @@
         <a href="https://www.google.com/maps?cid=12074854365190612932" target="_blank" rel="noopener" aria-label="Empire Boxing on Google" class="social-link">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
         </a>
-        <a href="mailto:empireboxing@hotmail.com" aria-label="Email Empire Boxing DFW" class="social-link">
+        <a href="/cdn-cgi/l/email-protection#bedbd3ced7ccdbdcd1c6d7d0d9fed6d1cad3dfd7d290ddd1d3" aria-label="Email Empire Boxing DFW" class="social-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M22 7l-10 7L2 7"/></svg>
         </a>
         <a href="https://wa.me/12147787747" target="_blank" rel="noopener" aria-label="Message Empire Boxing on WhatsApp" class="social-link">
@@ -2027,7 +2085,7 @@
     </style>
   </noscript>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Loader - guaranteed to dismiss
     function dismissLoader() { document.getElementById('loader').classList.add('done'); }
     window.addEventListener('load', function() { setTimeout(dismissLoader, 1700); });
@@ -2067,7 +2125,7 @@
     }
     document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
 
-    document.querySelectorAll('.program-card').forEach(function(card) {
+    document.querySelectorAll('.program-row').forEach(function(card) {
       card.addEventListener('mousemove', function(e) {
         var rect = card.getBoundingClientRect();
         var x = (e.clientX - rect.left) / rect.width - 0.5;
