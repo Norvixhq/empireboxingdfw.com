@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <!-- PRIMARY SEO -->
-  <title>Empire Boxing DFW | #1 Private Boxing Gym in Dallas-Fort Worth, TX</title>
-  <meta name="description" content="Empire Boxing DFW — private 1-on-1 boxing lessons in Plano, TX led by Coach Francisco, a USA Boxing Certified trainer with 30+ years of experience. Youth, adults &amp; all skill levels. MMA fighters welcome to sharpen boxing skills. All equipment provided. Open 7 days. Call 214-778-7747."/>
-  <meta name="keywords" content="boxing gym Plano TX, boxing lessons Dallas, private boxing training DFW, boxing classes Plano Texas, youth boxing Plano, adult boxing classes Dallas Fort Worth, 1 on 1 boxing training, private boxing lessons near me, boxing coach Plano, boxing trainer Dallas, boxing for MMA fighters Plano, strength and conditioning Plano, USA Boxing certified coach, boxing gym near me, best boxing gym DFW, Empire Boxing, Francisco boxing coach, boxing classes for kids Plano, professional boxing training Texas, boxing gym Dallas Fort Worth, personal boxing trainer Plano TX, boxing lessons for beginners Dallas, competition boxing training Texas, boxing coach DFW, boxing classes near me, private boxing coach Texas"/>
+  <title>Empire Boxing DFW | Texas Cruiserweight Champion Coach Francisco | #1 Private Boxing Gym in Dallas-Fort Worth, TX</title>
+  <meta name="description" content="Empire Boxing DFW — private 1-on-1 boxing lessons in Plano, TX led by Coach Francisco Rodriguez, Texas Cruiserweight State Champion &amp; USA Boxing Certified trainer with 30+ years of experience. Youth, adults &amp; all skill levels. MMA fighters welcome. All equipment provided. Open 7 days. Call 214-778-7747."/>
+  <meta name="keywords" content="Texas cruiserweight champion boxing, boxing gym Plano TX, boxing lessons Dallas, private boxing training DFW, boxing classes Plano Texas, youth boxing Plano, adult boxing classes Dallas Fort Worth, 1 on 1 boxing training, private boxing lessons near me, boxing coach Plano, boxing trainer Dallas, boxing for MMA fighters Plano, strength and conditioning Plano, USA Boxing certified coach, boxing gym near me, best boxing gym DFW, Empire Boxing, Francisco Rodriguez boxing coach, Texas state boxing champion, boxing classes for kids Plano, professional boxing training Texas, boxing gym Dallas Fort Worth, personal boxing trainer Plano TX, boxing lessons for beginners Dallas, competition boxing training Texas, boxing coach DFW, boxing classes near me, private boxing coach Texas, cruiserweight champion trainer Dallas"/>
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
   <meta name="author" content="Empire Boxing DFW"/>
   <meta name="geo.region" content="US-TX"/>
@@ -20,8 +20,8 @@
   <link rel="alternate" hreflang="x-default" href="https://www.empireboxingdfw.com/"/>
 
   <!-- OPEN GRAPH (Facebook / Social) -->
-  <meta property="og:title" content="Empire Boxing DFW | #1 Private Boxing Gym in Plano & Dallas, TX"/>
-  <meta property="og:description" content="Private 1-on-1 boxing lessons with Coach Francisco — 30+ years of experience, USA Boxing Certified. Youth, adults & all skill levels in Plano, TX. All equipment provided. Open 7 days a week."/>
+  <meta property="og:title" content="Empire Boxing DFW | Texas Cruiserweight Champion | #1 Private Boxing Gym in Plano &amp; Dallas, TX"/>
+  <meta property="og:description" content="Train with Texas Cruiserweight State Champion Francisco Rodriguez — 30+ years of experience, USA Boxing Certified. Private 1-on-1 boxing lessons for youth, adults &amp; all skill levels in Plano, TX. All equipment provided. Open 7 days a week."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://www.empireboxingdfw.com/"/>
   <meta property="og:image" content="https://www.empireboxingdfw.com/logo.png"/>
@@ -33,8 +33,8 @@
 
   <!-- TWITTER CARD -->
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Empire Boxing DFW | #1 Private Boxing Gym in Plano & Dallas, TX"/>
-  <meta name="twitter:description" content="Private 1-on-1 boxing lessons in Plano, TX. USA Boxing Certified coach, 30+ years experience. Youth, adults & all levels. Call 214-778-7747."/>
+  <meta name="twitter:title" content="Empire Boxing DFW | Texas Cruiserweight Champion | Plano &amp; Dallas, TX"/>
+  <meta name="twitter:description" content="Train with Texas Cruiserweight State Champion Francisco Rodriguez. Private 1-on-1 boxing lessons in Plano, TX. USA Boxing Certified, 30+ years experience. Call 214-778-7747."/>
   <meta name="twitter:image" content="https://www.empireboxingdfw.com/logo.png"/>
 
   <!-- ADDITIONAL SEO SIGNALS -->
@@ -1225,6 +1225,242 @@
       .footer-inner { flex-direction: column; text-align: center; }
     }
 
+    /* CHAMPION SHOWCASE */
+    .champion-section {
+      padding: 100px 24px 110px;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+    .champion-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(212,160,23,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(198,40,40,0.04) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .champion-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .champion-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 28px;
+      border-radius: 50px;
+      border: 1px solid rgba(212,160,23,0.3);
+      background: linear-gradient(135deg, rgba(212,160,23,0.1), rgba(212,160,23,0.03));
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .champion-badge::before { content: '🏆'; font-size: 1.1rem; }
+    .champion-badge::after { content: '🏆'; font-size: 1.1rem; }
+    .champion-title {
+      font-family: 'Abril Fatface', serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 4.5vw, 3.6rem);
+      line-height: 1.25;
+      color: var(--cream);
+      margin-bottom: 12px;
+      overflow: visible;
+    }
+    .champion-title em {
+      font-style: italic;
+      color: var(--red);
+    }
+    .champion-subtitle {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 48px;
+    }
+    .champion-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto 56px;
+    }
+    .champion-photo {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid rgba(212,160,23,0.2);
+      position: relative;
+      aspect-ratio: 3 / 4;
+      transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
+      box-shadow: 0 12px 48px rgba(0,0,0,0.4);
+      cursor: pointer;
+    }
+    .champion-photo:hover {
+      border-color: rgba(212,160,23,0.5);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 72px rgba(212,160,23,0.15), 0 12px 48px rgba(0,0,0,0.5);
+    }
+    .champion-photo img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+    }
+    .champion-photo:hover img { transform: scale(1.04); }
+    .champion-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(12,8,6,0.6) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .champion-photo-cap {
+      position: absolute;
+      bottom: 18px; left: 18px; right: 18px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      z-index: 3;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+    .champion-story {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 40px 44px;
+      border: 1px solid rgba(212,160,23,0.12);
+      border-radius: 18px;
+      background: linear-gradient(160deg, rgba(212,160,23,0.05), rgba(245,230,200,0.02));
+      position: relative;
+    }
+    .champion-story::before {
+      content: '\201C';
+      position: absolute;
+      top: 16px; left: 28px;
+      font-family: 'Abril Fatface', serif;
+      font-size: 4rem;
+      color: var(--gold);
+      opacity: 0.15;
+      line-height: 1;
+    }
+    .champion-story p {
+      color: var(--cream-dim);
+      font-size: 1.05rem;
+      line-height: 1.85;
+      text-align: left;
+    }
+    .champion-story p strong {
+      color: var(--cream);
+      font-weight: 600;
+    }
+    .champion-story-cta {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(245,230,200,0.06);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .champion-section { padding: 70px 20px 80px; }
+      .champion-photos { grid-template-columns: 1fr; max-width: 400px; }
+      .champion-story { padding: 28px 24px; }
+      .champion-badge { font-size: 0.75rem; letter-spacing: 2px; padding: 8px 20px; }
+    }
+
+    /* Champion shimmer effects */
+    .champ-shimmer {
+      position: relative;
+      display: inline-block;
+      padding: 10px 0 15px;
+      background: linear-gradient(
+        90deg,
+        var(--cream) 0%,
+        var(--cream) 35%,
+        #ffd700 48%,
+        #fff8e1 50%,
+        #ffd700 52%,
+        var(--cream) 65%,
+        var(--cream) 100%
+      );
+      background-size: 250% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: champShimmer 4s ease-in-out 1s infinite;
+      filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.15));
+      overflow: visible;
+    }
+    .champ-shimmer-red {
+      position: relative;
+      display: inline-block;
+      padding: 10px 0 15px;
+      background: linear-gradient(
+        90deg,
+        var(--red) 0%,
+        var(--red) 35%,
+        #ff6659 48%,
+        #ffcdd2 50%,
+        #ff6659 52%,
+        var(--red) 65%,
+        var(--red) 100%
+      );
+      background-size: 250% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: champShimmer 4s ease-in-out 2s infinite;
+      filter: drop-shadow(0 0 30px rgba(198, 40, 40, 0.2));
+      overflow: visible;
+    }
+    .champ-shimmer-gold {
+      padding: 6px 0 10px;
+      background: linear-gradient(
+        90deg,
+        var(--gold) 0%,
+        var(--gold) 35%,
+        #fff8e1 48%,
+        #ffffff 50%,
+        #fff8e1 52%,
+        var(--gold) 65%,
+        var(--gold) 100%
+      );
+      background-size: 250% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: champShimmer 4s ease-in-out 3s infinite;
+    }
+    @keyframes champShimmer {
+      0% { background-position: 130% center; }
+      40% { background-position: -30% center; }
+      100% { background-position: -30% center; }
+    }
+    .champion-badge {
+      animation: badgeGlow 3s ease-in-out infinite;
+    }
+    @keyframes badgeGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(212,160,23,0.1), inset 0 0 20px rgba(212,160,23,0.05); }
+      50% { box-shadow: 0 0 35px rgba(212,160,23,0.25), inset 0 0 30px rgba(212,160,23,0.1); }
+    }
+
     /* ACCESSIBILITY: Reduced motion support */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -1312,9 +1548,9 @@
     "founder": {
       "@type": "Person",
       "name": "Francisco Rodriguez",
-      "jobTitle": "Head Boxing Coach & Owner",
-      "description": "USA Boxing Certified coach with over 30 years of amateur and professional boxing experience. Trains beginners, youth, adults, and all skill levels. MMA fighters and martial artists welcome to sharpen their boxing skills.",
-      "knowsAbout": ["Boxing", "Boxing for MMA Fighters", "Strength and Conditioning", "Youth Athletics", "Competition Preparation"]
+      "jobTitle": "Head Boxing Coach, Owner & Texas Cruiserweight State Champion",
+      "description": "Texas Cruiserweight State Champion and USA Boxing Certified coach with over 30 years of amateur and professional boxing experience. Trains beginners, youth, adults, and all skill levels. MMA fighters and martial artists welcome to sharpen their boxing skills.",
+      "knowsAbout": ["Boxing", "Boxing for MMA Fighters", "Strength and Conditioning", "Youth Athletics", "Competition Preparation", "Professional Boxing"]
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -1527,6 +1763,7 @@
         <span class="nav-flag">🇲🇽</span>
       </a>
       <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <a href="#champion" style="color:var(--gold);">Champion</a>
         <a href="#about">About</a>
         <a href="#programs">Programs</a>
         <a href="#pricing">Pricing</a>
@@ -1546,6 +1783,7 @@
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
+    <a href="#champion" onclick="closeMobile()" style="color:var(--gold);">Champion</a>
     <a href="#about" onclick="closeMobile()">About</a>
     <a href="#programs" onclick="closeMobile()">Programs</a>
     <a href="#pricing" onclick="closeMobile()">Pricing</a>
@@ -1567,12 +1805,49 @@
       <p class="hero-location"><span class="line"></span>Plano, Texas &middot; Dallas&ndash;Fort Worth<span class="line"></span></p>
       <h1><span class="hero-title-shimmer" data-text="Empire Boxing">Empire Boxing</span> <span style="display:block; font-size:0.35em; font-family:'Barlow Condensed',sans-serif; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:var(--muted); margin-top:8px;">Private Boxing Gym &middot; Plano &amp; Dallas&ndash;Fort Worth, TX</span></h1>
       <p class="hero-subtitle">Coraz&oacute;n de Campe&oacute;n</p>
-      <p class="hero-desc">#1 for Boxing in Dallas-Fort Worth. Private 1-on-1 training for all ages and levels. We provide all equipment. 30+ years of experience. USA Boxing Certified. Come try a class with us.</p>
+      <p class="hero-desc">Train with the Texas Cruiserweight State Champion. Private 1-on-1 training for all ages and levels. We provide all equipment. 30+ years of experience. USA Boxing Certified. Come try a class with us.</p>
       <div class="hero-actions">
         <a class="btn btn-red btn-large" href="#contact">Start Training</a>
         <a class="btn btn-outline btn-large" href="tel:2147787747">Call / Text</a>
       </div>
       <div class="hero-diamond"><span class="dl"></span><span class="dd"></span><span class="dl"></span></div>
+    </div>
+  </section>
+
+  <div class="sec-divider"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+
+  <!-- CHAMPION SHOWCASE -->
+  <section class="champion-section" id="champion" aria-label="Texas Cruiserweight State Champion Francisco Rodriguez">
+    <div class="champion-inner">
+      <div class="reveal">
+        <div class="champion-badge">Texas Cruiserweight State Champion</div>
+      </div>
+      <h2 class="champion-title reveal" style="transition-delay:0.1s;"><span class="champ-shimmer" data-text="Francisco Rodriguez">Francisco Rodriguez</span><br/><em class="champ-shimmer-red" data-text="Texas Cruiserweight Champion">Texas Cruiserweight Champion</em></h2>
+      <p class="champion-subtitle reveal champ-shimmer-gold" style="transition-delay:0.15s;">Proving That Skill, Dedication &amp; Technique Outlast Everything</p>
+
+      <div class="champion-photos">
+        <div class="champion-photo reveal" style="transition-delay:0.2s;" onclick="openLightbox(this)">
+          <img src="gallery-11.png" alt="Francisco Rodriguez Texas Cruiserweight State Champion with championship belt at Saturday Night Fights - Empire Boxing DFW coach Plano Texas" loading="lazy"/>
+          <span class="champion-photo-cap">Texas Title Belt Champion</span>
+        </div>
+        <div class="champion-photo reveal" style="transition-delay:0.3s;" onclick="openLightbox(this)">
+          <img src="gallery-12.png" alt="Francisco Rodriguez celebrating Texas Cruiserweight Championship victory with arms raised in the ring - Empire Boxing DFW trainer Plano Dallas" loading="lazy"/>
+          <span class="champion-photo-cap">Championship Victory</span>
+        </div>
+      </div>
+
+      <div class="champion-story reveal" style="transition-delay:0.35s;">
+        <p><strong>I started boxing at 15 years old with a dream,</strong> but it wasn't until I met the legendary John "Lawman" Lawson that I truly learned what it meant to be a fighter. Under his guidance, I developed not just skill, but discipline, heart, and respect for the craft.</p>
+        <br/>
+        <p>I fought as an amateur, turned professional in 2005, and experienced the highs of victory. When life pulled me away from the ring, I never walked away from boxing &mdash; I continued to train, to learn, and to grow. <strong>Fifteen years later, during one of the toughest seasons of my life, I returned to the sport that built me.</strong> Boxing became my therapy, my strength, and my comeback.</p>
+        <br/>
+        <p>Today, as the <strong>Texas Cruiserweight Champion</strong>, defeating fighters half my age, I stand as proof that true skill, dedication, and technique outlast everything. Boxing isn't about swinging wild &mdash; it's about <strong>precision, intelligence, and heart.</strong></p>
+        <br/>
+        <p>I'm here to teach you the right way to fight, the right way to train, and the right way to believe in yourself again.</p>
+        <div class="champion-story-cta">
+          <a href="tel:2147787747" style="color: var(--gold); text-decoration: none;">Call or text 214-778-7747 to start your journey &rarr;</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1585,7 +1860,7 @@
         <div class="reveal" style="transition-delay: 0.1s;">
           <div class="section-label">About Coach Francisco</div>
           <h2 class="section-heading">30+ Years of<br/><em>Boxing Excellence</em></h2>
-          <p class="section-desc" style="max-width:100%;">USA Boxing Certified Coach. World Class Trainer &mdash; Making Elite Champions. From beginners to pros, kids of all ages &mdash; everyone trains the real way.</p>
+          <p class="section-desc" style="max-width:100%;">Texas Cruiserweight State Champion. USA Boxing Certified Coach. World Class Trainer &mdash; Making Elite Champions. From beginners to pros, kids of all ages &mdash; everyone trains the real way.</p>
           <div class="about-text" style="margin-top: 32px;">
             <p><strong>&ldquo;My name is Francisco.</strong> I've been boxing for over 30 years. I have fought amateurs and professionally. I have trained professionals and now I am offering boxing lessons to anyone wanting to learn how to box or just have a great workout.&rdquo;</p>
             <br/>
@@ -1600,7 +1875,7 @@
             <p>Empire Boxing is located in <strong>Plano, Texas</strong> and proudly serves the entire Dallas-Fort Worth metroplex. We're open 7 days a week with flexible scheduling to fit your life.</p>
           </div>
           <div class="about-highlight corner-frame">
-            <p>World Class Trainer &mdash; Making Elite Champions. USA Boxing Certified Coach. Friendly trainers here to guide you along the way.</p>
+            <p>Texas Cruiserweight State Champion. World Class Trainer &mdash; Making Elite Champions. USA Boxing Certified Coach. Friendly trainers here to guide you along the way.</p>
           </div>
         </div>
         <div class="about-cards">
@@ -1663,7 +1938,7 @@
           </div>
         </div>
         <div class="program-row reveal" style="transition-delay: 0.2s;">
-          <div class="program-row-icon private">&#129352;</div>
+          <div class="program-row-icon private">&#129351;</div>
           <div class="program-row-body">
             <div class="program-row-top">
               <h3>Private Lessons</h3>
@@ -1976,7 +2251,7 @@
             1817 Stockton Trail<br/>
             Plano, TX 75023<br/><br/>
             Call / Text: <a href="tel:2147787747">214-778-7747</a><br/>
-            Email: <a href="mailto:empireboxing@hotmail.com">empireboxing@hotmail.com</a>
+            Email: <a href="/cdn-cgi/l/email-protection#0a6f677a63786f68657263646d4a62657e676b636624696567"><span class="__cf_email__" data-cfemail="3e5b534e574c5b5c51465750597e56514a535f5752105d5153">[email&#160;protected]</span></a>
           </address>
           <div style="margin:16px 0; padding:14px; border-radius:10px; background:rgba(245,230,200,0.03); border:1px solid rgba(245,230,200,0.06); font-size:0.85rem; line-height:1.8; color:var(--muted);">
             <strong style="color:var(--cream);">Hours</strong><br/>
@@ -2020,7 +2295,7 @@
         <a class="btn btn-red btn-large" href="tel:2147787747">Call Now</a>
         <a class="btn btn-outline btn-large" href="sms:2147787747">Text Us</a>
         <a class="btn btn-outline btn-large" href="https://wa.me/12147787747" target="_blank" rel="noopener">WhatsApp</a>
-        <a class="btn btn-outline btn-large" href="mailto:empireboxing@hotmail.com">Email Us</a>
+        <a class="btn btn-outline btn-large" href="/cdn-cgi/l/email-protection#442129342d3621262b3c2d2a23042c2b3029252d286a272b29">Email Us</a>
       </div>
       <p class="reveal" style="margin-top:32px; color:var(--muted); font-size:0.88rem; line-height:1.7;">
         <strong style="color:var(--cream);">1817 Stockton Trail, Plano, TX 75023</strong><br/>
@@ -2045,7 +2320,7 @@
         <a href="https://www.google.com/maps?cid=12074854365190612932" target="_blank" rel="noopener" aria-label="Empire Boxing on Google" class="social-link">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
         </a>
-        <a href="mailto:empireboxing@hotmail.com" aria-label="Email Empire Boxing DFW" class="social-link">
+        <a href="/cdn-cgi/l/email-protection#f99c9489908b9c9b968190979eb991968d94989095d79a9694" aria-label="Email Empire Boxing DFW" class="social-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M22 7l-10 7L2 7"/></svg>
         </a>
         <a href="https://wa.me/12147787747" target="_blank" rel="noopener" aria-label="Message Empire Boxing on WhatsApp" class="social-link">
@@ -2063,7 +2338,7 @@
     <!-- SEO-rich footer content for search engines -->
     <div class="footer-seo" style="max-width:1100px; margin:0 auto; padding:24px 24px 8px; border-top:1px solid rgba(245,230,200,0.04);">
       <p style="font-size:0.72rem; line-height:1.8; color:rgba(245,230,200,0.2); text-align:center;">
-        Empire Boxing DFW is a private boxing gym located at 1817 Stockton Trail, Plano, TX 75023. Led by Coach Francisco, a USA Boxing Certified trainer with over 30 years of professional boxing experience. We offer private 1-on-1 boxing lessons, youth boxing classes, adult boxing training, strength and conditioning, and personal training. MMA fighters and martial artists welcome to sharpen their boxing skills. All equipment is provided at our private training location. Open 7 days a week. Proudly serving Plano, Dallas, Frisco, Richardson, Allen, McKinney, Fort Worth, Arlington, Irving, Denton, Garland, Carrollton, The Colony, Prosper, Celina, Murphy, Wylie, Sachse, Lucas, Addison, Lewisville, Mesquite, and the entire Dallas&ndash;Fort Worth metroplex. Boxing gym near me. Boxing classes near me. Private boxing lessons near me. Best boxing gym in DFW. Boxing trainer Dallas. Boxing coach Plano. Youth boxing classes DFW. Private boxing lessons Texas. Call or text 214-778-7747 to schedule your first session.
+        Empire Boxing DFW is a private boxing gym located at 1817 Stockton Trail, Plano, TX 75023. Led by Coach Francisco Rodriguez, Texas Cruiserweight State Champion and USA Boxing Certified trainer with over 30 years of professional boxing experience. We offer private 1-on-1 boxing lessons, youth boxing classes, adult boxing training, strength and conditioning, and personal training. MMA fighters and martial artists welcome to sharpen their boxing skills. All equipment is provided at our private training location. Open 7 days a week. Proudly serving Plano, Dallas, Frisco, Richardson, Allen, McKinney, Fort Worth, Arlington, Irving, Denton, Garland, Carrollton, The Colony, Prosper, Celina, Murphy, Wylie, Sachse, Lucas, Addison, Lewisville, Mesquite, and the entire Dallas&ndash;Fort Worth metroplex. Boxing gym near me. Boxing classes near me. Private boxing lessons near me. Best boxing gym in DFW. Boxing trainer Dallas. Boxing coach Plano. Youth boxing classes DFW. Private boxing lessons Texas. Texas boxing champion coach. Call or text 214-778-7747 to schedule your first session.
       </p>
       <nav style="text-align:center; margin-top:12px; font-size:0.7rem; color:rgba(245,230,200,0.15);" aria-label="Footer navigation">
         <a href="#top" style="color:inherit;">Home</a> &middot;
@@ -2085,11 +2360,20 @@
     </style>
   </noscript>
 
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" async onerror=""></script>
   <script>
-    // Loader - guaranteed to dismiss
-    function dismissLoader() { document.getElementById('loader').classList.add('done'); }
-    window.addEventListener('load', function() { setTimeout(dismissLoader, 1700); });
-    setTimeout(dismissLoader, 4000);
+    // Loader - guaranteed to dismiss even if external scripts/images fail
+    (function() {
+      function dismissLoader() { var l = document.getElementById('loader'); if (l) l.classList.add('done'); }
+      // Three layers of fallback:
+      window.addEventListener('load', function() { setTimeout(dismissLoader, 1700); });
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(dismissLoader, 2000);
+      } else {
+        document.addEventListener('DOMContentLoaded', function() { setTimeout(dismissLoader, 2500); });
+      }
+      setTimeout(dismissLoader, 4000); // absolute last resort
+    })();
     document.getElementById('year').textContent = new Date().getFullYear();
 
     var nav = document.getElementById('nav');
@@ -2128,11 +2412,13 @@
     document.querySelectorAll('.program-row').forEach(function(card) {
       card.addEventListener('mousemove', function(e) {
         var rect = card.getBoundingClientRect();
-        var x = (e.clientX - rect.left) / rect.width - 0.5;
-        var y = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = 'translateY(-6px) perspective(600px) rotateX(' + (-y * 5) + 'deg) rotateY(' + (x * 5) + 'deg)';
+        var x = (e.clientX - rect.left) / rect.width;
+        var y = (e.clientY - rect.top) / rect.height;
+        card.style.background = 'radial-gradient(circle at ' + (x * 100) + '% ' + (y * 100) + '%, rgba(198,40,40,0.06), rgba(245,230,200,0.01))';
       });
-      card.addEventListener('mouseleave', function() { card.style.transform = ''; });
+      card.addEventListener('mouseleave', function() {
+        card.style.background = '';
+      });
     });
   </script>
 </body>
