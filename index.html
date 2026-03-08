@@ -47,6 +47,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preload" as="image" href="logo.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
   <style>
@@ -126,7 +127,7 @@
       align-items: center;
       justify-content: center;
       gap: 28px;
-      transition: opacity 0.7s ease, visibility 0.7s;
+      transition: opacity 0.4s ease, visibility 0.4s;
     }
     .loader.done { opacity: 0; visibility: hidden; pointer-events: none; }
     .loader-logo {
@@ -1458,6 +1459,23 @@
       50% { box-shadow: 0 0 35px rgba(212,160,23,0.25), inset 0 0 30px rgba(212,160,23,0.1); }
     }
 
+    /* PERFORMANCE: content-visibility for below-fold sections */
+    #about, #programs, #pricing, #gallery, #why, #contact {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 800px;
+    }
+
+    /* PERFORMANCE: promote animated layers to GPU */
+    .hero-logo-ring, .loader-logo, .hero-title-shimmer, .champ-shimmer, .champ-shimmer-red {
+      will-change: transform;
+    }
+
+    /* PERFORMANCE: simplify grain on mobile to reduce compositing */
+    @media (max-width: 768px) {
+      .grain { display: none; }
+      .hero-logo-ring { display: none; }
+    }
+
     /* ACCESSIBILITY: Reduced motion support */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -1730,7 +1748,7 @@
 
   <!-- LOADER -->
   <div class="loader" id="loader">
-    <img class="loader-logo" src="logo.png" alt="Empire Boxing DFW logo"/>
+    <img class="loader-logo" src="logo.png" alt="Empire Boxing DFW logo" fetchpriority="high"/>
     <div class="loader-text">Empire Boxing</div>
     <div class="loader-line"><span></span></div>
   </div>
@@ -1781,7 +1799,7 @@
       <div class="hero-logo-wrap">
         <div class="hero-logo-ring"></div>
         <div class="hero-logo-ring r2"></div>
-        <img class="hero-logo" src="logo.png" alt="Empire Boxing DFW logo" width="240" height="240"/>
+        <img class="hero-logo" src="logo.png" alt="Empire Boxing DFW logo" width="240" height="240" fetchpriority="high" loading="eager"/>
       </div>
       <p class="hero-location"><span class="line"></span>Plano, Texas &middot; Dallas&ndash;Fort Worth<span class="line"></span></p>
       <h1><span class="hero-title-shimmer" data-text="Private Boxing Lessons">Private Boxing Lessons</span> <span style="display:block; font-size:0.35em; font-family:'Barlow Condensed',sans-serif; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:var(--muted); margin-top:8px;">in Plano &amp; Dallas&ndash;Fort Worth, TX</span></h1>
@@ -2342,16 +2360,16 @@
   </noscript>
 
   <script>
-    // Loader - guaranteed to dismiss even if external scripts/images fail
+    // Loader - fast dismiss, keeps branding but doesn't delay perceived load
     (function() {
       function dismissLoader() { var l = document.getElementById('loader'); if (l) l.classList.add('done'); }
-      window.addEventListener('load', function() { setTimeout(dismissLoader, 1700); });
+      window.addEventListener('load', function() { setTimeout(dismissLoader, 500); });
       if (document.readyState === 'complete' || document.readyState === 'interactive') {
-        setTimeout(dismissLoader, 2000);
+        setTimeout(dismissLoader, 800);
       } else {
-        document.addEventListener('DOMContentLoaded', function() { setTimeout(dismissLoader, 2500); });
+        document.addEventListener('DOMContentLoaded', function() { setTimeout(dismissLoader, 1000); });
       }
-      setTimeout(dismissLoader, 4000);
+      setTimeout(dismissLoader, 2500);
     })();
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -2381,28 +2399,35 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
     document.querySelectorAll('.reveal').forEach(function(el) { revealObs.observe(el); });
 
-    function openLightbox(el) {
-      var src = el.querySelector('img').src;
-      document.getElementById('lightboxImg').src = src;
-      document.getElementById('lightbox').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+    // Defer non-critical interactions until after first paint
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        // Lightbox
+        window.openLightbox = function(el) {
+          var src = el.querySelector('img').src;
+          document.getElementById('lightboxImg').src = src;
+          document.getElementById('lightbox').classList.add('open');
+          document.body.style.overflow = 'hidden';
+        };
+        window.closeLightbox = function() {
+          document.getElementById('lightbox').classList.remove('open');
+          document.body.style.overflow = '';
+        };
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
 
-    document.querySelectorAll('.program-row').forEach(function(card) {
-      card.addEventListener('mousemove', function(e) {
-        var rect = card.getBoundingClientRect();
-        var x = (e.clientX - rect.left) / rect.width;
-        var y = (e.clientY - rect.top) / rect.height;
-        card.style.background = 'radial-gradient(circle at ' + (x * 100) + '% ' + (y * 100) + '%, rgba(198,40,40,0.06), rgba(245,230,200,0.01))';
-      });
-      card.addEventListener('mouseleave', function() {
-        card.style.background = '';
-      });
+        // Program row hover gradient
+        document.querySelectorAll('.program-row').forEach(function(card) {
+          card.addEventListener('mousemove', function(e) {
+            var rect = card.getBoundingClientRect();
+            var x = (e.clientX - rect.left) / rect.width;
+            var y = (e.clientY - rect.top) / rect.height;
+            card.style.background = 'radial-gradient(circle at ' + (x * 100) + '% ' + (y * 100) + '%, rgba(198,40,40,0.06), rgba(245,230,200,0.01))';
+          });
+          card.addEventListener('mouseleave', function() {
+            card.style.background = '';
+          });
+        });
+      }, 300);
     });
   </script>
 </body>
