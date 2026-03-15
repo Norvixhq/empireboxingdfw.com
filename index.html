@@ -1924,7 +1924,7 @@
     <a href="#pricing" onclick="closeMobile()">Pricing</a>
     <a href="#gallery" onclick="closeMobile()">Media</a>
     <a href="#why" onclick="closeMobile()">Why Us</a>
-    <a href="#nearby" onclick="closeMobile()" style="color:var(--gold);">Near You</a>
+    <a href="#nearby" onclick="event.preventDefault(); closeMobile(); setTimeout(function(){ document.getElementById('nearby').scrollIntoView({behavior:'smooth'}); }, 450);" style="color:var(--gold);">Near You</a>
     <a href="#contact" onclick="closeMobile()">Contact</a>
     <a href="tel:2147787747" onclick="closeMobile()" style="color:var(--gold);">Call Now</a>
   </div>
