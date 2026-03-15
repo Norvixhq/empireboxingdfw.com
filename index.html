@@ -1223,7 +1223,8 @@
       .mobile-menu { display: flex; }
       .hero { padding: 100px 20px 60px; min-height: 100svh; }
       .hero-logo-wrap { width: 200px; height: 200px; margin-bottom: 32px; }
-      .hero-logo-ring { display: none; }
+      .hero-logo-ring { inset: -10px; }
+      .hero-logo-ring.r2 { inset: -22px; }
       .hero-diamond { display: none; }
       .about-grid { grid-template-columns: 1fr; gap: 36px; }
       .why-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -1474,6 +1475,122 @@
       contain-intrinsic-size: auto 800px;
     }
 
+    /* NAV DROPDOWN */
+    .nav-dropdown {
+      position: relative;
+    }
+    .nav-dropdown > a {
+      color: var(--gold) !important;
+    }
+    .nav-dropdown > a::after {
+      display: none;
+    }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      min-width: 200px;
+      background: rgba(12,8,6,0.96);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(212,160,23,0.15);
+      border-radius: 12px;
+      padding: 10px 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(212,160,23,0.05);
+      z-index: 200;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-menu a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 22px !important;
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-weight: 600 !important;
+      font-size: 0.82rem !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase !important;
+      color: var(--cream) !important;
+      transition: all 0.2s ease !important;
+      border-radius: 0 !important;
+      background: none !important;
+    }
+    .nav-dropdown-menu a:hover {
+      background: rgba(198,40,40,0.08) !important;
+      color: var(--gold) !important;
+      padding-left: 28px !important;
+    }
+    .nav-dropdown-menu a span.dd-time {
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+
+    /* CITY CARDS */
+    .city-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    .city-card {
+      padding: 24px 18px;
+      border: 1px solid rgba(212,160,23,0.12);
+      border-radius: 14px;
+      background: linear-gradient(160deg, rgba(212,160,23,0.04), rgba(245,230,200,0.01));
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
+      position: relative;
+      overflow: hidden;
+    }
+    .city-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(212,160,23,0.2), rgba(198,40,40,0.2), rgba(212,160,23,0.2));
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+    .city-card:hover {
+      border-color: rgba(212,160,23,0.35);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(212,160,23,0.1), 0 0 24px rgba(198,40,40,0.06);
+    }
+    .city-card:hover::before { opacity: 1; }
+    .city-card-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--cream);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .city-card-time {
+      font-size: 0.78rem;
+      color: var(--gold);
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .city-grid { grid-template-columns: repeat(2, 1fr); max-width: 400px; }
+    }
+    @media (max-width: 400px) {
+      .city-grid { grid-template-columns: 1fr; max-width: 280px; }
+    }
+
     /* PERFORMANCE: promote animated layers to GPU */
     .hero-logo-ring, .loader-logo, .hero-title-shimmer, .champ-shimmer, .champ-shimmer-red {
       will-change: transform;
@@ -1482,7 +1599,6 @@
     /* PERFORMANCE: simplify grain on mobile to reduce compositing */
     @media (max-width: 768px) {
       .grain { display: none; }
-      .hero-logo-ring { display: none; }
     }
 
     /* ACCESSIBILITY: Reduced motion support */
@@ -1777,6 +1893,17 @@
         <a href="#pricing">Pricing</a>
         <a href="#gallery">Media</a>
         <a href="#why">Why Us</a>
+        <div class="nav-dropdown">
+          <a href="#nearby">Near You &#9662;</a>
+          <div class="nav-dropdown-menu">
+            <a href="boxing-lessons-frisco.html">Frisco <span class="dd-time">10-15 min</span></a>
+            <a href="boxing-lessons-richardson.html">Richardson <span class="dd-time">8-12 min</span></a>
+            <a href="boxing-lessons-allen.html">Allen <span class="dd-time">12-18 min</span></a>
+            <a href="boxing-lessons-mckinney.html">McKinney <span class="dd-time">18-25 min</span></a>
+            <a href="boxing-lessons-dallas.html">North Dallas <span class="dd-time">15-20 min</span></a>
+            <a href="boxing-lessons-the-colony.html">The Colony <span class="dd-time">12-18 min</span></a>
+          </div>
+        </div>
         <a href="#contact">Contact</a>
       </nav>
       <div class="nav-cta">
@@ -1797,6 +1924,7 @@
     <a href="#pricing" onclick="closeMobile()">Pricing</a>
     <a href="#gallery" onclick="closeMobile()">Media</a>
     <a href="#why" onclick="closeMobile()">Why Us</a>
+    <a href="#nearby" onclick="closeMobile()" style="color:var(--gold);">Near You</a>
     <a href="#contact" onclick="closeMobile()">Contact</a>
     <a href="tel:2147787747" onclick="closeMobile()" style="color:var(--gold);">Call Now</a>
   </div>
@@ -2282,6 +2410,45 @@
 
   <div class="sec-divider"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
 
+  <!-- NEARBY COMMUNITIES -->
+  <section id="nearby" class="below-fold" aria-label="Boxing lessons for nearby communities">
+    <div class="section-inner" style="text-align:center;">
+      <div class="reveal">
+        <div class="section-label" style="justify-content:center;">Serving Nearby Communities</div>
+        <h2 class="section-heading">Boxing Lessons <em>Near You</em></h2>
+        <p class="section-desc" style="margin-left:auto; margin-right:auto;">Empire Boxing DFW proudly serves boxers throughout the North Dallas area. Select your city to learn more about training with us.</p>
+      </div>
+      <div class="city-grid reveal">
+        <a href="boxing-lessons-frisco.html" class="city-card">
+          <span class="city-card-name">Frisco</span>
+          <span class="city-card-time">10&ndash;15 min</span>
+        </a>
+        <a href="boxing-lessons-richardson.html" class="city-card">
+          <span class="city-card-name">Richardson</span>
+          <span class="city-card-time">8&ndash;12 min</span>
+        </a>
+        <a href="boxing-lessons-allen.html" class="city-card">
+          <span class="city-card-name">Allen</span>
+          <span class="city-card-time">12&ndash;18 min</span>
+        </a>
+        <a href="boxing-lessons-mckinney.html" class="city-card">
+          <span class="city-card-name">McKinney</span>
+          <span class="city-card-time">18&ndash;25 min</span>
+        </a>
+        <a href="boxing-lessons-dallas.html" class="city-card">
+          <span class="city-card-name">North Dallas</span>
+          <span class="city-card-time">15&ndash;20 min</span>
+        </a>
+        <a href="boxing-lessons-the-colony.html" class="city-card">
+          <span class="city-card-name">The Colony</span>
+          <span class="city-card-time">12&ndash;18 min</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec-divider"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+
   <!-- CONTACT -->
   <section id="contact" aria-label="Contact Empire Boxing DFW - Schedule a Boxing Lesson">
     <div class="section-inner" style="text-align:center; max-width:800px; margin:0 auto;">
@@ -2355,6 +2522,7 @@
         <a href="#pricing" style="color:inherit;">Pricing</a> &middot;
         <a href="#gallery" style="color:inherit;">Media</a> &middot;
         <a href="#why" style="color:inherit;">Why Empire Boxing</a> &middot;
+        <a href="#nearby" style="color:inherit;">Near You</a> &middot;
         <a href="#contact" style="color:inherit;">Contact</a>
       </nav>
     </div>
