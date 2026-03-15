@@ -1471,8 +1471,8 @@
       50% { box-shadow: 0 0 35px rgba(212,160,23,0.25), inset 0 0 30px rgba(212,160,23,0.1); }
     }
 
-    /* PERFORMANCE: content-visibility for below-fold sections */
-    #about, #programs, #pricing, #gallery, #why, #contact {
+    /* PERFORMANCE: content-visibility for heavy below-fold sections */
+    #gallery {
       content-visibility: auto;
       contain-intrinsic-size: auto 800px;
     }
@@ -1926,7 +1926,7 @@
     <a href="#pricing" onclick="closeMobile()">Pricing</a>
     <a href="#gallery" onclick="closeMobile()">Media</a>
     <a href="#why" onclick="closeMobile()">Why Us</a>
-    <a href="javascript:void(0)" onclick="navToNearby()" style="color:var(--gold);">Near You</a>
+    <a href="#nearby" onclick="closeMobile()" style="color:var(--gold);">Near You</a>
     <a href="#contact" onclick="closeMobile()">Contact</a>
     <a href="tel:2147787747" onclick="closeMobile()" style="color:var(--gold);">Call Now</a>
   </div>
@@ -2413,7 +2413,7 @@
   <div class="sec-divider"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
 
   <!-- NEARBY COMMUNITIES -->
-  <section id="nearby" class="below-fold" aria-label="Boxing lessons for nearby communities">
+  <section id="nearby" aria-label="Boxing lessons for nearby communities">
     <div class="section-inner" style="text-align:center;">
       <div class="reveal">
         <div class="section-label" style="justify-content:center;">Serving Nearby Communities</div>
@@ -2571,29 +2571,6 @@
       document.body.style.overflow = '';
       navToggle.setAttribute('aria-expanded', 'false');
       navToggle.setAttribute('aria-label', 'Open menu');
-    }
-
-    function navToNearby() {
-      // Immediately kill menu - no animation, no transition
-      mobileMenu.style.transition = 'none';
-      mobileMenu.classList.remove('open');
-      mobileMenu.style.opacity = '0';
-      mobileMenu.style.visibility = 'hidden';
-      navToggle.classList.remove('open');
-      document.body.style.overflow = '';
-      navToggle.setAttribute('aria-expanded', 'false');
-      // Force browser to process the style changes
-      void mobileMenu.offsetHeight;
-      // Restore transitions for future use
-      mobileMenu.style.transition = '';
-      mobileMenu.style.opacity = '';
-      mobileMenu.style.visibility = '';
-      // Now scroll - menu is guaranteed gone
-      var el = document.getElementById('nearby');
-      if (el) {
-        var top = el.getBoundingClientRect().top + window.pageYOffset - 80;
-        window.scrollTo({ top: top, behavior: 'smooth' });
-      }
     }
 
     var revealObs = new IntersectionObserver(function(entries) {
