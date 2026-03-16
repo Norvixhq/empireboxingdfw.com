@@ -1196,7 +1196,8 @@
     .footer-links a { color: var(--muted2); font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
     .footer-links a:hover { color: var(--red); }
 
-    .footer-social { display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; max-width: 380px; }
+    .footer-social { display: grid; grid-template-columns: repeat(7, 42px); gap: 12px; justify-content: center; }
+    @media (max-width: 480px) { .footer-social { grid-template-columns: repeat(4, 42px); } }
     .social-link {
       width: 42px; height: 42px;
       border-radius: 10px;
@@ -1967,7 +1968,7 @@
     <a href="#gallery" onclick="closeMobile()">Media</a>
     <a href="#why" onclick="closeMobile()">Why Us</a>
     <a href="#nearby" onclick="closeMobile()" style="color:#e53935; text-shadow: 0 0 12px rgba(229,57,53,0.5), 0 0 24px rgba(229,57,53,0.25);">Near You</a>
-    <a href="#contact" onclick="closeMobile()">Contact</a>
+    <a href="#contact" onclick="closeMobile()" style="color:#e53935; text-shadow: 0 0 12px rgba(229,57,53,0.5), 0 0 24px rgba(229,57,53,0.25);">Contact</a>
     <a href="tel:2147787747" onclick="closeMobile()" style="color:var(--gold);">Call Now</a>
   </div>
 
